@@ -1,0 +1,19 @@
+{
+  "name": "popsicles-please",
+  "version": "0.0.1",
+  "description": "Deliver Popsicles Here",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Automattic",
+  "license": "GPL2+",
+  "dependencies": {
+    "forecast.io": "0.0.8",
+    "promise": "~5.0.0",
+    "request": "~2.34.0",
+    "queue": "~2.2.0",
+    "socket.io": "~0.9.16",
+    "express": "~4.2.0"
+  }
+}
