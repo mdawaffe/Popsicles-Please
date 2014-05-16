@@ -1,2 +1,4 @@
+.env
+Procfile
 cache.json
 node_modules
