@@ -76,6 +76,11 @@ var PointList = React.createClass( {displayName: 'PointList',
 				),
 				React.DOM.tbody( {id:"list-body"}, 
 					points
+				),
+				React.DOM.tfoot(null, 
+					React.DOM.tr(null, 
+						React.DOM.td( {colSpan:"2"}, "Powered by ", React.DOM.a( {href:"http://forecast.io/"}, "Forecast"), " and ", React.DOM.a( {href:"https://developers.google.com/maps/documentation/geocoding/"}, "Google"),".")
+					)
 				)
 			)
 		);
