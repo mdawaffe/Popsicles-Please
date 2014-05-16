@@ -12,9 +12,8 @@ Dependencies
 Configuration
 -------------
 
-~~~bash
-$ cp config-sample.js config.js
-~~~
+Configuration can be done by manually editing `config.js` or by setting the
+various environment variables used by that file as described below.
 
 ### Server
 
