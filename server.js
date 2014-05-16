@@ -21,9 +21,6 @@ var pointService = new PointService( config.locationsURL ? config.locationsURL :
 
 pointService.start();
 
-app.get( '/', function( req, res ) {
-	res.sendfile( __dirname + '/index.html' );
-} );
 
 app.use( Express.static( __dirname + '/src' ) );
 
