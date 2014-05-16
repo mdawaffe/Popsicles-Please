@@ -23,6 +23,8 @@ var geocode = new GoogleGeocode( config.GoogleMaps );
 
 var cache = require( './lib/cache' )( config.server.cache, config.server.cacheTTL );
 
+var merge = require( './lib/merge' );
+
 var PointService = require( './lib/point-service' );
 var pointService = new PointService( config.locationsURL ? config.locationsURL : config.locations , forecast, geocode, cache );
 
@@ -31,7 +33,15 @@ pointService.start();
 app.use( Express.static( __dirname + '/build' ) );
 
 function emitPoint( socket, point ) {
-	socket.emit( 'point', point );
+	var output = merge( {}, point );
+
+	if ( 'neighborhood' === output.locality ) {
+		output.city = output.neighborhood;
+	}
+	delete output.neighborhood;
+	delete output.locality;
+
+	socket.emit( 'point', output );
 }
 
 function emitDone( socket ) {

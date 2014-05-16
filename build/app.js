@@ -17,14 +17,14 @@ function heatClass( temperature ) {
 var Point = React.createClass( {displayName: 'Point',
 	handleHover: function( event ) {
 		event.pointTemp = this.props.temperature;
-		event.pointBounds = this.props.bounds;
+		event.pointBounds = this.props.city.bounds;
 		event.pointSticky = false;
 		this.props.onUserSelectPoint( event );
 	},
 
 	handleClick: function( event ) {
 		event.pointTemp = this.props.temperature;
-		event.pointBounds = this.props.bounds;
+		event.pointBounds = this.props.city.bounds;
 		event.pointSticky = this.props.key;
 		this.props.onUserSelectPoint( event );
 	},
@@ -42,7 +42,7 @@ var Point = React.createClass( {displayName: 'Point',
 				onMouseEnter:this.handleHover,
 				onClick:this.handleClick}
 			, 
-				React.DOM.th( {scope:"row"}, this.props.city),
+				React.DOM.th( {scope:"row"}, this.props.city.name),
 				React.DOM.td(null, Math.round( this.props.temperature ).toString() + ' °F')
 			)
 		);
@@ -59,7 +59,6 @@ var PointList = React.createClass( {displayName: 'PointList',
 					{onUserSelectPoint:_this.props.onUserSelectPoint,
 					key:key,
 					city:point.city,
-					bounds:point.bounds,
 					temperature:point.temperature,
 					selected:key === _this.props.selectedPoint}
 				)
