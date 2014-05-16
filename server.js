@@ -17,7 +17,7 @@ var geocode = new GoogleGeocode( config.GoogleMaps );
 var cache = require( './lib/cache' )( config.server.cache, 86400000 ); // 1 day
 
 var PointService = require( './lib/point-service' );
-var pointService = new PointService( config.locations, forecast, geocode, cache );
+var pointService = new PointService( config.locationsURL ? config.locationsURL : config.locations , forecast, geocode, cache );
 
 pointService.start();
 
