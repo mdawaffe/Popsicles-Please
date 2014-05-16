@@ -30,20 +30,21 @@ pointService.start();
 
 app.use( Express.static( __dirname + '/build' ) );
 
+function emitPoint( socket, point ) {
+	socket.emit( 'point', point );
+}
+
+function emitDone( socket ) {
+	socket.emit( 'done' );
+}
+
+pointService.on( 'point', emitPoint.bind( null, io.sockets ) );
+
+pointService.on( 'done', emitDone.bind( null, io.sockets ) );
+
 io.sockets.on( 'connection', function( socket ) {
-	function emitPoint( point ) {
-		socket.emit( 'point', point );
-	}
-
-	function emitDone() {
-		socket.emit( 'done' );
-	}
-
-	pointService.on( 'point', emitPoint );
-	pointService.on( 'done', emitDone );
-
-	pointService.points.forEach( emitPoint );
+	pointService.points.forEach( emitPoint.bind( null, socket ) );
 	if ( pointService.is_done ) {
-		emitDone();
+		emitDone( socket );
 	}
 } );
