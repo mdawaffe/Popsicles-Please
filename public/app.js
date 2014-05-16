@@ -25,7 +25,7 @@ var Point = React.createClass( {
 var PointList = React.createClass( {
 	render: function() {
 		var points = this.props.points.map( function( point ) {
-			return <Point city={point.city} temperature={point.temperature} />;
+			return <Point key={point.latitude.toString() + ',' + point.longitude.toString()} city={point.city} temperature={point.temperature} />;
 		} );
 
 		return (
