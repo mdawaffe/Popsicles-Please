@@ -14,7 +14,7 @@ var forecast = new ForecastIO( config.ForecastIO );
 var GoogleGeocode = require( './lib/google-geocode' );
 var geocode = new GoogleGeocode( config.GoogleMaps );
 
-var cache = require( './lib/cache' )( config.server.cache, 86400000 ); // 1 day
+var cache = require( './lib/cache' )( config.server.cache, config.server.cacheTTL );
 
 var PointService = require( './lib/point-service' );
 var pointService = new PointService( config.locationsURL ? config.locationsURL : config.locations , forecast, geocode, cache );

@@ -22,6 +22,7 @@ $ cp config-sample.js config.js
 config.server = {
 	port: 3000,         // port for server to listen on
 	cache: 'cache.json' // path to cache file
+	cacheTTL: 86400000, // time for which to cache each item (ms)
 }
 ~~~
 
