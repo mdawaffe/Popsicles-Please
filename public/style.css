@@ -122,11 +122,12 @@ th[scope=row] {
 
 #map-container .temperature {
 	font-size: 100px;
+	line-height: 1;
 	position: relative;
 	text-align: center;
 	display: inline-block;
 	padding: 10%;
-	margin-top: calc( 50% - 1em );
+	margin-top: calc( 50% - 0.9em );
 	opacity: .8;
 }
 
