@@ -184,7 +184,7 @@ var App = React.createClass( {
 
 	componentWillMount: function() {
 		var _this = this;
-		var socket = io.connect( 'http://127.0.0.1:3000/' );
+		var socket = io.connect( document.location.origin );
 
 		socket.on( 'point', function( point ) {
 			var points = _this.state.points.concat( [ point ] );
