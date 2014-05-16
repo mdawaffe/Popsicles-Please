@@ -21,8 +21,7 @@ var pointService = new PointService( config.locationsURL ? config.locationsURL :
 
 pointService.start();
 
-
-app.use( Express.static( __dirname + '/src' ) );
+app.use( Express.static( __dirname + '/build' ) );
 
 io.sockets.on( 'connection', function( socket ) {
 	function emitPoint( point ) {
