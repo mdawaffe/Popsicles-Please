@@ -6,6 +6,13 @@ var app = Express();
 var server = require( 'http' ).createServer( app );
 var io = require( 'socket.io' ).listen( server );
 
+if ( 'production' === process.env.NODE_ENV ) {
+	io.enable( 'browser client minification' );
+	io.enable( 'browser client etag' );
+	io.enable( 'browser client gzip' );
+	io.set( 'log level', 1 );
+}
+
 server.listen( config.server.port );
 
 var ForecastIO = require( 'forecast.io' );
