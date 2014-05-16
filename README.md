@@ -91,3 +91,11 @@ Development
 1. `npm install`
 2. `grunt`
 3. `grunt watch`
+
+Todo
+----
+
+* Use react to serve the views server-side.
+* Use redis for cache.
+* Forecast.io's data looks suspicious sometimes... Pasadena's forecast is off by 10°F today, for example.
+* Show hcard avatars.
