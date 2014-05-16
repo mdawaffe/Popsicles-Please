@@ -25,7 +25,7 @@ app.get( '/', function( req, res ) {
 	res.sendfile( __dirname + '/index.html' );
 } );
 
-app.use( Express.static( __dirname + '/public' ) );
+app.use( Express.static( __dirname + '/src' ) );
 
 io.sockets.on( 'connection', function( socket ) {
 	function emitPoint( point ) {
